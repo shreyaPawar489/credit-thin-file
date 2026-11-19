@@ -50,6 +50,10 @@ A separate model trained only on thin-file borrowers did **worse** for them than
 
 **What drives predictions.** TreeSHAP contributions (`results/contributions.csv`) show the external scores at the top for both groups. For thin-file borrowers, after `EXT_SOURCE_2`, the most important features are affordability (credit-to-goods ratio, annuity), loan term on earlier applications, employment length and age.
 
+## How this was built
+
+I wrote this with heavy help from AI coding tools (Claude Code), which wrote most of the code and drafted this README. I chose the questions, reviewed the results and decided what to report, including dropping a claim that didn't hold up across random splits. I'm happy to walk through any part of it.
+
 ## Limitations
 
 - **Selective labels.** Outcomes exist only for loans Home Credit actually approved, so this says nothing about applicants who were rejected outright. A real evaluation would need reject inference or, better, an experiment that randomizes approval near the cutoff.
