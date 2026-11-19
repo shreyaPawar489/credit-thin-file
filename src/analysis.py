@@ -45,21 +45,21 @@ def load():
     return df, blocks
 
 
-def split(df):
+def split(df, seed=SEED):
     strata = df["TARGET"].astype(str) + "_" + df["thin_file"]
-    train, rest = train_test_split(df, test_size=0.4, stratify=strata, random_state=SEED)
-    valid, test = train_test_split(rest, test_size=0.5, stratify=strata.loc[rest.index], random_state=SEED)
+    train, rest = train_test_split(df, test_size=0.4, stratify=strata, random_state=seed)
+    valid, test = train_test_split(rest, test_size=0.5, stratify=strata.loc[rest.index], random_state=seed)
     return train, valid, test
 
 
 # ---------- models ----------
 
-def fit_xgb(train, valid, cols):
+def fit_xgb(train, valid, cols, seed=SEED):
     model = xgb.XGBClassifier(
         n_estimators=3000, learning_rate=0.05, max_depth=5, min_child_weight=20,
         subsample=0.8, colsample_bytree=0.6, reg_lambda=5,
         tree_method="hist", enable_categorical=True, eval_metric="auc",
-        early_stopping_rounds=100, random_state=SEED, n_jobs=-1,
+        early_stopping_rounds=100, random_state=seed, n_jobs=-1,
     )
     model.fit(train[cols], train["TARGET"], eval_set=[(valid[cols], valid["TARGET"])], verbose=False)
     return model
@@ -126,12 +126,12 @@ def group_audit(test, pred_col, cutoff, rng):
     return pd.DataFrame(rows)
 
 
-def ablation(train, valid, test, blocks):
+def ablation(train, valid, test, blocks, seed=SEED):
     """Add feature blocks cumulatively; score thin-file and thick-file test borrowers separately."""
     rows, cols = [], []
     for block in ABLATION:
         cols = cols + [c for c, b in blocks.items() if b == block]
-        model = fit_xgb(train, valid, cols)
+        model = fit_xgb(train, valid, cols, seed)
         p = model.predict_proba(test[cols])[:, 1]
         for level, d in test.assign(p=p).groupby("thin_file"):
             rows.append({"added_block": block, "n_features": len(cols), "segment": level,

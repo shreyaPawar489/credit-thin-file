@@ -1,0 +1,61 @@
+added_block,n_features,segment,auc,seed
+core,23,has bureau record,0.6736310820514568,42
+core,23,thin file,0.6698418392044914,42
+region_housing,79,has bureau record,0.6797411663151997,42
+region_housing,79,thin file,0.6882264661867846,42
+alternative_data,114,has bureau record,0.6903605685562593,42
+alternative_data,114,thin file,0.7029112757239468,42
+previous_apps,120,has bureau record,0.7056560620803061,42
+previous_apps,120,thin file,0.7177221049962109,42
+external_scores,123,has bureau record,0.7589047051147599,42
+external_scores,123,thin file,0.7482792313661347,42
+bureau,139,has bureau record,0.7635929040261589,42
+bureau,139,thin file,0.7487146625273757,42
+core,23,has bureau record,0.6791311432584588,7
+core,23,thin file,0.6668263011200793,7
+region_housing,79,has bureau record,0.6880291522009911,7
+region_housing,79,thin file,0.6708301402896795,7
+alternative_data,114,has bureau record,0.6976703302527913,7
+alternative_data,114,thin file,0.6838444968947517,7
+previous_apps,120,has bureau record,0.7116806180771409,7
+previous_apps,120,thin file,0.7009405596751315,7
+external_scores,123,has bureau record,0.7651809417801521,7
+external_scores,123,thin file,0.7398759772912012,7
+bureau,139,has bureau record,0.7713019448682661,7
+bureau,139,thin file,0.7384406855530323,7
+core,23,has bureau record,0.6733770641588203,123
+core,23,thin file,0.6851399400580074,123
+region_housing,79,has bureau record,0.6798842544040646,123
+region_housing,79,thin file,0.6940672007861023,123
+alternative_data,114,has bureau record,0.6912377267340827,123
+alternative_data,114,thin file,0.7170603772819536,123
+previous_apps,120,has bureau record,0.7071370267026589,123
+previous_apps,120,thin file,0.7294452734656619,123
+external_scores,123,has bureau record,0.7630067554862298,123
+external_scores,123,thin file,0.7668017921609059,123
+bureau,139,has bureau record,0.771669381228759,123
+bureau,139,thin file,0.7667778930890267,123
+core,23,has bureau record,0.6782214002395276,2024
+core,23,thin file,0.6738431962746383,2024
+region_housing,79,has bureau record,0.6843812476889625,2024
+region_housing,79,thin file,0.6821702853549182,2024
+alternative_data,114,has bureau record,0.6949528882763982,2024
+alternative_data,114,thin file,0.691693320868939,2024
+previous_apps,120,has bureau record,0.7089470250241987,2024
+previous_apps,120,thin file,0.7094212552530089,2024
+external_scores,123,has bureau record,0.760861908169305,2024
+external_scores,123,thin file,0.7383030354090635,2024
+bureau,139,has bureau record,0.7700546925578595,2024
+bureau,139,thin file,0.7388429984158533,2024
+core,23,has bureau record,0.6854332559727307,31
+core,23,thin file,0.6714679689320576,31
+region_housing,79,has bureau record,0.6949589307326037,31
+region_housing,79,thin file,0.6838667648727045,31
+alternative_data,114,has bureau record,0.7029621084487118,31
+alternative_data,114,thin file,0.6969509748481062,31
+previous_apps,120,has bureau record,0.7130854386649048,31
+previous_apps,120,thin file,0.7192714314749784,31
+external_scores,123,has bureau record,0.7630889646930248,31
+external_scores,123,thin file,0.7489498237212967,31
+bureau,139,has bureau record,0.7678868137401518,31
+bureau,139,thin file,0.7503437707742859,31

@@ -44,13 +44,23 @@ def fig_audit():
 
 
 def fig_ablation():
-    d = pd.read_csv(RES / "ablation.csv").pivot(index="added_block", columns="segment", values="auc")
     order = list(LABELS)
-    d = d.loc[order]
+    seeds_file = RES / "ablation_seeds.csv"
+    runs = pd.read_csv(seeds_file if seeds_file.exists() else RES / "ablation.csv")
+    stats = runs.groupby(["added_block", "segment"])["auc"].agg(["mean", "min", "max"]).reset_index()
+    n_seeds = runs["seed"].nunique() if "seed" in runs else 1
+
     fig, ax = plt.subplots(figsize=(9, 4))
-    x = range(len(d))
-    ax.plot(x, d["has bureau record"], "o-", color=BLUE, label="has bureau record")
-    ax.plot(x, d["thin file"], "o-", color=ORANGE, label="thin file (no bureau record)")
+    x = range(len(order))
+    for segment, color, label in [("has bureau record", BLUE, "has bureau record"),
+                                  ("thin file", ORANGE, "thin file (no bureau record)")]:
+        s = stats[stats["segment"] == segment].set_index("added_block").loc[order]
+        ax.plot(x, s["mean"], "o-", color=color, label=label)
+        if n_seeds > 1:
+            ax.fill_between(x, s["min"], s["max"], color=color, alpha=0.15, lw=0)
+    if n_seeds > 1:
+        ax.text(0.99, 0.02, f"mean of {n_seeds} random splits; band = min to max",
+                transform=ax.transAxes, ha="right", fontsize=8, color="#4a5568")
     ax.set_xticks(list(x), [LABELS[b] for b in order], fontsize=8)
     ax.set_ylabel("Test AUC")
     ax.set_title("What predicts default without a credit history? (blocks added left to right)")
