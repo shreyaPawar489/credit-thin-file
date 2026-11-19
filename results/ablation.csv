@@ -1,0 +1,13 @@
+added_block,n_features,segment,auc
+core,23,has bureau record,0.6736310820514568
+core,23,thin file,0.6698418392044914
+region_housing,79,has bureau record,0.6797411663151997
+region_housing,79,thin file,0.6882264661867846
+alternative_data,114,has bureau record,0.6903605685562593
+alternative_data,114,thin file,0.7029112757239468
+previous_apps,120,has bureau record,0.7056560620803061
+previous_apps,120,thin file,0.7177221049962109
+external_scores,123,has bureau record,0.7589047051147599
+external_scores,123,thin file,0.7482792313661347
+bureau,139,has bureau record,0.7635929040261589
+bureau,139,thin file,0.7487146625273757

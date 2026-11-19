@@ -1,0 +1,23 @@
+{
+  "n_train": 184506,
+  "n_valid": 61502,
+  "n_test": 61503,
+  "thin_file_share": 0.14314935075493235,
+  "xgb_best_iteration": 666,
+  "separate_thin_model": {
+    "pooled_model_auc": 0.7496316209825624,
+    "thin_only_model_auc": 0.7409204447411617
+  },
+  "ext_source_missing_share": {
+    "has bureau record": {
+      "EXT_SOURCE_1": 0.559,
+      "EXT_SOURCE_2": 0.002,
+      "EXT_SOURCE_3": 0.071
+    },
+    "thin file": {
+      "EXT_SOURCE_1": 0.613,
+      "EXT_SOURCE_2": 0.003,
+      "EXT_SOURCE_3": 0.971
+    }
+  }
+}
